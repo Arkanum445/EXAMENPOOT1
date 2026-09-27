@@ -149,5 +149,10 @@ public class Paciente {
             System.out.println("El correo debe tener un formato válido .com");
         }
     }
-
+   public void verPaciente (){
+       System.out.println("PACIENTE TIPO DOC:  " + this.tipoDocumento + " NRO DOC: " +
+               this.numeroDocumento + " Nombre: " + this.nombreCompleto + " MATERNO: " + this.apeMaterno +
+               " PATERNO: " + this.apePaterno + " FENAC: " + this.fechaNacimiento + "TIPO SANGRE: " + this.tipoSangre +
+               " ALERGIAS: " + this.alergias + " TELEFONO " + this.telefono + " CORREO: " + this.correo);
+   }
 }
