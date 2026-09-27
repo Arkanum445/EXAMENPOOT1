@@ -11,6 +11,8 @@ package t1poohospital;
 public class Paciente {
     private String tipoDocumento;
     private String numeroDocumento;
+    private String apePaterno; 
+    private String apeMaterno; 
     private String nombreCompleto;
     private String fechaNacimiento;
     private String tipoSangre;
@@ -23,7 +25,12 @@ public class Paciente {
     }
 
     public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
+         if (tipoDocumento.equals("DNI") ||
+            tipoDocumento.equals("Carnet de Extranjería")) {
+            this.tipoDocumento = tipoDocumento;
+        } else {
+            System.out.println("El tipo de documento no es correcto");
+        }
     }
 
     public String getNumeroDocumento() {
@@ -31,7 +38,42 @@ public class Paciente {
     }
 
     public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
+        if (tipoDocumento == null) {
+            System.out.println("Primero debe ingresar el tipo de documento");
+        } else if (tipoDocumento.equals("DNI")) {
+
+            if (numeroDocumento.length()==8) {
+                this.numeroDocumento = numeroDocumento;
+            } else {
+                System.out.println("El DNI debe tener 8 dígitos");
+            }
+
+        } else if (tipoDocumento.equals("Carnet de Extranjería")) {
+
+            if (numeroDocumento.length()==9) {
+                this.numeroDocumento = numeroDocumento;
+            } else {
+                System.out.println(
+                    "El Carnet de Extranjería debe tener 9 dígitos"
+                );
+            }
+        }
+    }
+
+    public String getApePaterno() {
+        return apePaterno;
+    }
+
+    public void setApePaterno(String apePaterno) {
+        this.apePaterno = apePaterno;
+    }
+
+    public String getApeMaterno() {
+        return apeMaterno;
+    }
+
+    public void setApeMaterno(String apeMaterno) {
+        this.apeMaterno = apeMaterno;
     }
 
     public String getNombreCompleto() {
@@ -39,7 +81,11 @@ public class Paciente {
     }
 
     public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
+        if (nombreCompleto != null && !nombreCompleto.trim().isEmpty()) {
+            this.nombreCompleto = nombreCompleto;
+        } else {
+            System.out.println("El nombre no puede estar vacío");
+        }
     }
 
     public String getFechaNacimiento() {
@@ -47,7 +93,11 @@ public class Paciente {
     }
 
     public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+        if (fechaNacimiento != null && !fechaNacimiento.trim().isEmpty()) {
+            this.fechaNacimiento = fechaNacimiento;
+        } else {
+            System.out.println("La fecha de nacimiento no puede estar vacía");
+        }
     }
 
     public String getTipoSangre() {
@@ -55,7 +105,12 @@ public class Paciente {
     }
 
     public void setTipoSangre(String tipoSangre) {
-        this.tipoSangre = tipoSangre;
+        if (tipoSangre != null && !tipoSangre.trim().isEmpty()) {
+            this.tipoSangre = tipoSangre;
+        } else {
+            System.out.println("El tipo de sangre no puede estar vacío");
+        }
+
     }
 
     public String getAlergias() {
@@ -63,7 +118,12 @@ public class Paciente {
     }
 
     public void setAlergias(String alergias) {
-        this.alergias = alergias;
+         if (alergias != null && !alergias.trim().isEmpty()) {
+            this.alergias = alergias;
+        } else {
+            System.out.println("El campo alergias no puede estar vacío");
+        }
+
     }
 
     public String getTelefono() {
@@ -71,7 +131,11 @@ public class Paciente {
     }
 
     public void setTelefono(String telefono) {
-        this.telefono = telefono;
+         if (telefono != null && telefono.length()== 9) {
+            this.telefono = telefono;
+        } else {
+            System.out.println("El teléfono debe tener 9 dígitos");
+        }
     }
 
     public String getCorreo() {
@@ -79,7 +143,11 @@ public class Paciente {
     }
 
     public void setCorreo(String correo) {
-        this.correo = correo;
+         if (correo != null && correo.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.com$")) {
+            this.correo = correo;
+        } else {
+            System.out.println("El correo debe tener un formato válido .com");
+        }
     }
 
 }
