@@ -65,7 +65,11 @@ public class Paciente {
     }
 
     public void setApePaterno(String apePaterno) {
+       if (apePaterno != null && !apePaterno.trim().isEmpty()){
         this.apePaterno = apePaterno;
+        } else {
+            System.out.println("El apellido Paterno no puede estar vacío");
+        }
     }
 
     public String getApeMaterno() {
@@ -73,7 +77,11 @@ public class Paciente {
     }
 
     public void setApeMaterno(String apeMaterno) {
+         if (apeMaterno != null && !apeMaterno.trim().isEmpty()){
         this.apeMaterno = apeMaterno;
+        } else {
+            System.out.println("El apellido Materno no puede estar vacío");
+        }
     }
 
     public String getNombreCompleto() {
